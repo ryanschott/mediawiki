@@ -135,5 +135,5 @@ $wgDefaultSkin = "citizen";
 # End of automatically generated settings.
 # Add more configuration options below.
 
-wfLoadSkin( 'Citizen' );
+wfLoadSkin('citizen');
 
