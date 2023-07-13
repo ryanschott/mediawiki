@@ -1,0 +1,121 @@
+.citizen-menu {
+	&__heading {
+		display: block;
+		padding: var( --space-xs ) var( --space-md );
+		margin: 0;
+		color: var( --color-base--subtle );
+		font-size: inherit;
+		font-weight: var( --font-weight-normal );
+		letter-spacing: 0.05em;
+	}
+
+	.mw-list-item {
+		line-height: var( --line-height-xs );
+
+		a {
+			display: flex;
+			align-items: center;
+			padding: var( --space-xs ) var( --space-md );
+			color: var( --color-base );
+			font-weight: var( --font-weight-medium );
+			gap: var( --space-sm );
+			transition: var( --transition-hover );
+			transition-property: background, color, opacity;
+
+			&:hover {
+				background-color: var( --background-color-primary--hover );
+				color: var( --color-base--emphasized );
+
+				.citizen-ui-icon::before {
+					opacity: var( --opacity-icon-base--hover );
+				}
+			}
+
+			&:active {
+				background-color: var( --background-color-primary--active );
+				color: var( --color-base--subtle );
+
+				.citizen-ui-icon::before {
+					opacity: var( --opacity-icon-base--active );
+				}
+			}
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+// FIXME: This should not be here
+.citizen-ui-icon {
+	display: block;
+	width: var( --size-icon );
+	height: var( --size-icon );
+	contain: strict;
+
+	&::before {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		filter: var( --filter-invert );
+		opacity: var( --opacity-icon-base );
+	}
+}
+
+/**
+ * Invisible checkbox covering the menu button.
+ */
+.citizen-menu-checkbox {
+	// Has to be visible to be focusable
+	&-checkbox {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+		opacity: 0;
+
+		// HACK: Fake focus styles
+		&:focus {
+			& + .citizen-header__button,
+			& + .citizen-menu-checkbox-button {
+				outline: 2px solid var( --color-primary );
+				outline-offset: 1px;
+			}
+		}
+	}
+
+	&-button {
+		cursor: pointer;
+
+		// Icons have to use span inside label elements
+		> span:not( .citizen-ui-icon ) {
+			.mixin-screen-reader-text;
+		}
+	}
+}
+
+.mw-portlet {
+	// Hide selected item
+	.selected {
+		.mixin-screen-reader-text;
+	}
+
+	// Hide empty menu
+	&-empty {
+		display: none !important;
+	}
+
+	a::after {
+		filter: var( --filter-invert );
+	}
+}
