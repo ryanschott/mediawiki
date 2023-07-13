@@ -143,7 +143,9 @@ $wgResourceLoaderMaxQueryLength = -1;
 # debugging and testing
 //$wgResourceLoaderDebug = true;
 #$wgEnableJavaScriptTest = true;
-#wgShowExceptionDetails = true;
+$wgShowExceptionDetails = true;
+$wgShowDBErrorBacktrace = true;
+$wgShowSQLErrors = true;
 #$wgDebugDumpSql = true;
 #$wgDebugLogFile = "/tmp/sql.txt";
 //$wgDevelopmentWarnings = true;
