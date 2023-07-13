@@ -71,14 +71,14 @@ $wgDBmysql5 = false;
 ## Shared memory settings
 //$wgMainCacheType    = CACHE_NONE;
 //$wgMemCachedServers = array();
-$wgMemCachedPersistent = false;
-$wgUseMemCached = true;
-$wgMainCacheType = CACHE_MEMCACHED;
-$wgParserCacheType = CACHE_MEMCACHED;
-$wgMemCachedTimeout = 5000000;
-$wgMemCachedInstanceSize = 2000;
-$wgMemCachedServers = array('127.0.0.1:11211');
-$wgResourceLoaderMaxage['unversioned'] = 1;
+#$wgMemCachedPersistent = false;
+#$wgUseMemCached = true;
+#$wgMainCacheType = CACHE_MEMCACHED;
+#$wgParserCacheType = CACHE_MEMCACHED;
+#$wgMemCachedTimeout = 5000000;
+#$wgMemCachedInstanceSize = 2000;
+#$wgMemCachedServers = array('127.0.0.1:11211');
+#$wgResourceLoaderMaxage['unversioned'] = 1;
 
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
@@ -142,51 +142,47 @@ $wgResourceLoaderMaxQueryLength = -1;
 
 # debugging and testing
 //$wgResourceLoaderDebug = true;
-$wgEnableJavaScriptTest = true;
-$wgShowExceptionDetails = true;
-$wgDebugDumpSql = true;
-$wgDebugLogFile = "/tmp/sql.txt";
+#$wgEnableJavaScriptTest = true;
+#wgShowExceptionDetails = true;
+#$wgDebugDumpSql = true;
+#$wgDebugLogFile = "/tmp/sql.txt";
 //$wgDevelopmentWarnings = true;
 
 # prevent background jobs from running on requests
 # http://www.mediawiki.org/wiki/Manual:$wgJobRunRate
-$wgJobRunRate = 0;
+#$wgJobRunRate = 0;
 
-$wgAllowUserJs = true;
-$wgAllowUserCss = true;
-
-# a namespace for my own helper settings (not to pollute the global namespace even more)
-class MyLocalSettings {
-	public static $centralAuthOtherSite = '55qr.localtunnel.com';
-}
+#$wgAllowUserJs = true;
+#$wgAllowUserCss = true;
 
 # not an MW extension, but sometimes helpful
 //require_once "$IP/extensions/FirePHPCore-0.3.2/lib/FirePHPCore/fb.php";
 
-require_once "$IP/extensions/ParserFunctions/ParserFunctions.php";
-require_once "$IP/extensions/Cite/Cite.php";
-require_once "$IP/extensions/PageImages/PageImages.php";
-require_once "$IP/extensions/GeoData/GeoData.php";
+//require_once "$IP/extensions/ParserFunctions/ParserFunctions.php";
+//require_once "$IP/extensions/Cite/Cite.php";
+//require_once "$IP/extensions/PageImages/PageImages.php";
+//require_once "$IP/extensions/GeoData/GeoData.php";
 
 # BetaFeatures
-require_once( "$IP/extensions/BetaFeatures/BetaFeatures.php" );
+//require_once( "$IP/extensions/BetaFeatures/BetaFeatures.php" );
 
 # Minifier
 # https://gerrit.wikimedia.org/r/#/c/74293/
 //require_once "$IP/extensions/Minifier/Minifier.php";
-$wgMinifierHosts = array( 'localhost:8888' );
+#$wgMinifierHosts = array( 'localhost:8888' );
 
 # Parsoid
-require_once("$IP/extensions/Parsoid/Parsoid.php");
+//require_once("$IP/extensions/Parsoid/Parsoid.php");
 
 # VisualEditor
-require_once("$IP/extensions/VisualEditor/VisualEditor.php");
+//require_once("$IP/extensions/VisualEditor/VisualEditor.php");
 // URL to the Parsoid instance
 // MUST NOT end in a slash due to Parsoid bug
-$wgVisualEditorParsoidURL = 'http://localhost:8000';
-$wgDefaultUserOptions['visualeditor-enable'] = 1;
+//$wgVisualEditorParsoidURL = 'http://localhost:8000';
+//$wgDefaultUserOptions['visualeditor-enable'] = 1;
 
 # MobileFrontend
+/*
 require_once "$IP/extensions/MobileFrontend/MobileFrontend.php";
 $wgMFForceSecureLogin = false;
 $wgMFAutodetectMobileView = true;
@@ -199,16 +195,17 @@ $wgMobileFrontendLogo = '//upload.wikimedia.org/wikipedia/commons/thumb/1/10/Wik
 # footer logo (comment to get text instead of <img>)
 //$wgMFCustomLogos = array( 'copyright' => '/extensions/MobileFrontend/images/logo-copyright-en.png' );
 $wgValidSkinNames['minerva'] = "Minerva";
+*/
 
 # EventLogging
-require_once "$IP/extensions/EventLogging/EventLogging.php";
-$wgEventLoggingBaseUri = 'http://localhost:8080/event.gif';
-$wgEventLoggingSchemaApiUri = 'http://meta.wikimedia.org/w/api.php';
-$wgEventLoggingFile = '/var/log/mediawiki/events.log';
+#require_once "$IP/extensions/EventLogging/EventLogging.php";
+#$wgEventLoggingBaseUri = 'http://localhost:8080/event.gif';
+#$wgEventLoggingSchemaApiUri = 'http://meta.wikimedia.org/w/api.php';
+#$wgEventLoggingFile = '/var/log/mediawiki/events.log';
 
 # Echo
-require_once "$IP/extensions/Echo/Echo.php";
-require_once "$IP/extensions/Thanks/Thanks.php";
+#require_once "$IP/extensions/Echo/Echo.php";
+#require_once "$IP/extensions/Thanks/Thanks.php";
 
 # CommonsMetadata
 //require_once "$IP/extensions/CommonsMetadata/CommonsMetadata.php";
@@ -216,30 +213,30 @@ require_once "$IP/extensions/Thanks/Thanks.php";
 # ConfirmEdit (captcha)
 //require_once "$IP/extensions/ConfirmEdit/ConfirmEdit.php";
 //require_once "$IP/extensions/ConfirmEdit/FancyCaptcha.php";
-$wgCaptchaClass = 'FancyCaptcha';
-$wgCaptchaDirectory = "$IP/cache/captcha";
-$wgCaptchaDirectoryLevels = 0;
-$wgCaptchaSecret = "FOO";
+#$wgCaptchaClass = 'FancyCaptcha';
+#$wgCaptchaDirectory = "$IP/cache/captcha";
+#$wgCaptchaDirectoryLevels = 0;
+#$wgCaptchaSecret = "FOO";
 //$wgCaptchaTriggers['edit'] = true;
 
 # AbuseFilter
 //require_once "$IP/extensions/AbuseFilter/AbuseFilter.php";
-$wgGroupPermissions['sysop']['abusefilter-modify'] = true;
-$wgGroupPermissions['*']['abusefilter-log-detail'] = true;
-$wgGroupPermissions['*']['abusefilter-view'] = true;
-$wgGroupPermissions['*']['abusefilter-log'] = true;
-$wgGroupPermissions['sysop']['abusefilter-private'] = true;
-$wgGroupPermissions['sysop']['abusefilter-modify-restricted'] = true;
-$wgGroupPermissions['sysop']['abusefilter-revert'] = true;
+#$wgGroupPermissions['sysop']['abusefilter-modify'] = true;
+#$wgGroupPermissions['*']['abusefilter-log-detail'] = true;
+#$wgGroupPermissions['*']['abusefilter-view'] = true;
+#$wgGroupPermissions['*']['abusefilter-log'] = true;
+#$wgGroupPermissions['sysop']['abusefilter-private'] = true;
+#$wgGroupPermissions['sysop']['abusefilter-modify-restricted'] = true;
+#$wgGroupPermissions['sysop']['abusefilter-revert'] = true;
 
 # UniversalLanguageSelector
-require_once "$IP/extensions/UniversalLanguageSelector/UniversalLanguageSelector.php";
+#require_once "$IP/extensions/UniversalLanguageSelector/UniversalLanguageSelector.php";
 //$wgULSMobileWebfontsEnabled = true;
 
 # VectorBeta
-require_once "$IP/extensions/VectorBeta/VectorBeta.php";
-$wgVectorBetaPersonalBar = true;
-$wgVectorBetaWinter = true;
+#require_once "$IP/extensions/VectorBeta/VectorBeta.php";
+#$wgVectorBetaPersonalBar = true;
+#$wgVectorBetaWinter = true;
 
 # MultimediaViewer
 //require_once "$IP/extensions/MultimediaViewer/MultimediaViewer.php";
@@ -254,14 +251,14 @@ $wgVectorBetaWinter = true;
 //$wgZeroRatedMobileAccessEnableZeroConfigPages = true;
 
 # Flow
-require_once __DIR__ . "/extensions/Flow/Flow.php";
-$wgFlowOccupyNamespaces = array( NS_USER_TALK );
+#require_once __DIR__ . "/extensions/Flow/Flow.php";
+#$wgFlowOccupyNamespaces = array( NS_USER_TALK );
 
 # TextExtracts
-require_once __DIR__ . "/extensions/TextExtracts/TextExtracts.php";
+#require_once __DIR__ . "/extensions/TextExtracts/TextExtracts.php";
 
 # Popups (hovercards)
-require_once __DIR__ . "/extensions/Popups/Popups.php";
+#require_once __DIR__ . "/extensions/Popups/Popups.php";
 
 # CentralAuth
 /*
