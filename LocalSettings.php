@@ -19,8 +19,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "Talent Manager Wiki";
-$wgMetaNamespace = "Talentwiki";
+$wgSitename = getenv("SITE_NAME");
+$wgMetaNamespace = getenv("NAMESPACE");
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -30,7 +30,7 @@ $wgMetaNamespace = "Talentwiki";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "https://talentwiki.screenwavemedia.com";
+$wgServer = getenv("SERVER_URL");
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -47,8 +47,18 @@ $wgLogos = [
 $wgEnableEmail = true;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "talentwiki@screenwavemedia.com";
-$wgPasswordSender = "talentwiki@screenwavemedia.com";
+$wgEmergencyContact = getenv("SMTP_FROM");
+$wgPasswordSender = getenv("SMTP_FROM");
+
+$wgSMTP = [
+    'host'      => getenv("SMTP_SERVER"), // could also be an IP address. Where the SMTP server is located. If using SSL or TLS, add the prefix "ssl://" or "tls://".
+    'IDHost'    => getenv("SMTP_HOST"),      // Generally this will be the domain name of your website (aka mywiki.org)
+    'localhost' => getenv("SMTP_HOST"),      // Same as IDHost above; required by some mail servers
+    'port'      => 587,                // Port to use when connecting to the SMTP server
+    'auth'      => true,               // Should we use SMTP authentication (true or false)
+    'username'  => getenv("SMTP_USER"),     // Username to use for SMTP authentication (if being used)
+    'password'  => getenv("SMTP_PASS")       // Password to use for SMTP authentication (if being used)
+];
 
 $wgEnotifUserTalk = true; # UPO
 $wgEnotifWatchlist = true; # UPO
@@ -130,10 +140,10 @@ $wgGroupPermissions['*']['read'] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, e.g. 'vector' or 'monobook':
-$wgDefaultSkin = "citizen";
+$wgDefaultSkin = getenv("DEFAULT_SKIN");
 
 # End of automatically generated settings.
 # Add more configuration options below.
 
-wfLoadSkin('citizen');
+wfLoadSkin(getenv("DEFAULT_SKIN"));
 
